@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useAuth } from "@/lib/auth";
-
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export default function AuthForm({ mode }: any) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { signIn, signUp } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,19 +54,27 @@ export default function AuthForm({ mode }: any) {
         />
       </div>
 
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2 relative">
         <label htmlFor="password" className="text-gray-700 font-medium text-left">
           Password
         </label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           placeholder="Enter your password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          className="px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pr-10"
         />
+
+        <button
+          type="button"
+          onClick={() => setShowPassword((prev) => !prev)}
+          className="absolute right-3 top-11 text-gray-500 hover:text-gray-700"
+        >
+          {showPassword ? <EyeOffIcon size={20} /> : <EyeIcon size={20} />}
+        </button>
       </div>
 
       <button
