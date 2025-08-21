@@ -6,7 +6,8 @@ const firebaseConfig = {
   apiKey: "AIzaSyD5H8NA6d71Xk9lqaOPaHDJa_SA8dW0T2I",
   authDomain: "todo-app-39572.firebaseapp.com",
   projectId: "todo-app-39572",
-  storageBucket: "todo-app-39572.firebasestorage.app",
+  // storageBucket: "todo-app-39572.firebasestorage.app",
+  storageBucket: "todo-app-39572.appspot.com", 
   messagingSenderId: "103193851776",
   appId: "1:103193851776:web:09b7f44748d41dfad4b365",
   measurementId: "G-KR8TPLDVZG"
