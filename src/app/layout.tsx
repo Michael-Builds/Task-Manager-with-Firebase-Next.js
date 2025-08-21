@@ -4,6 +4,7 @@ import "./globals.css";
 import { TasksProvider } from "@/lib/task";
 import { AuthProvider } from "@/lib/auth";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/next"
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -29,6 +30,7 @@ export default function RootLayout({
         <AuthProvider>
           <TasksProvider>
             {children}
+            <Analytics/>
             <Toaster
               position="top-right"
               toastOptions={{
